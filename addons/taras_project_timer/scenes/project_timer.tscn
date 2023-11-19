@@ -43,6 +43,7 @@ layout_mode = 2
 
 [node name="FocusCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+button_pressed = true
 
 [node name="FocusLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
