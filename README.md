@@ -6,8 +6,8 @@ This project was made for Godot 4.2
 
 ## Special Thanks
 
-* **LauraWebDev for helping me with bugs, issues and being my mental support.
-* **HauntedPS1 for helping me with file saving.
+* **LauraWebDev** for helping me with bugs, issues and being my mental support.
+* **HauntedPS1** for helping me with file saving.
 
 ## Dontations
 
