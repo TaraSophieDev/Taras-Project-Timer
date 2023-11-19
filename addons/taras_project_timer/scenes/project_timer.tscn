@@ -35,7 +35,7 @@ text = "Reset"
 [node name="TimeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
-text = "00:00:00:00"
+text = "00:00:05:24"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -48,6 +48,7 @@ button_pressed = true
 [node name="FocusLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
 text = "Pause without focus"
 horizontal_alignment = 1
 
