@@ -23,8 +23,11 @@ func reset_time():
 	time = 0.0
 
 func _ready():
+	time_started = true
+	is_focused = true
 	time = _save_manager.load_time()
-	pass
+	pause_on_unfocus = _save_manager.load_settings()
+	$VBoxContainer/HBoxContainer/FocusCheckBox.button_pressed = pause_on_unfocus
 
 
 func _process(delta):
@@ -44,6 +47,7 @@ func _on_start_button_pressed():
 func _on_stop_button_pressed():
 	time_started = false
 	_save_manager.save_time(time)
+	_save_manager.save_settings(pause_on_unfocus)
 
 
 func _on_reset_button_pressed():
@@ -56,6 +60,9 @@ func _notification(what):
 		is_focused = true
 	elif what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
 		is_focused = false
+	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_save_manager.save_time(time)
+		_save_manager.save_settings(pause_on_unfocus)
 
 
 func _on_focus_check_box_toggled(toggled_on):
