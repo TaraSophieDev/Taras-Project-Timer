@@ -1,9 +1,10 @@
 @tool
 extends PanelContainer
 
+var _save_manager = SaveManager.new()
 
 var time_started: bool = false
-var time: float = 0.0
+var time: int = 0.0
 var render_timeout: float = 1.0
 
 func convert_time_to_readable():
@@ -18,9 +19,8 @@ func reset_time():
 	time_started = false
 	time = 0.0
 
-
 func _ready():
-	time_started = true
+	time = _save_manager.load_time()
 
 
 func _process(delta):
@@ -38,6 +38,7 @@ func _on_start_button_pressed():
 
 func _on_stop_button_pressed():
 	time_started = false
+	_save_manager.save_time(time)
 
 
 func _on_reset_button_pressed():
