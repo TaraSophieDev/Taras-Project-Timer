@@ -1,4 +1,4 @@
-# Tara's Project-Timer
+# Tara's Project Timer
 
 This Plugin tracks your project time on a project basis, like steam time tracking.
 
