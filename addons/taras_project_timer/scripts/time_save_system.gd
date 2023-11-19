@@ -9,8 +9,12 @@ func save_time(time: float):
 	#var json = JSON.stringify(save_time())
 	save_time.store_float(time)
 	
-func save_settings():
-	pass
+func save_settings(settings: bool):
+	var save_settings = FileAccess.open(settings_path, FileAccess.WRITE)
+	if settings:
+		save_settings.store_8(1)
+	else:
+		save_settings.store_8(0)
 
 func load_time():
 	if not FileAccess.file_exists(time_save_path):
@@ -23,9 +27,17 @@ func load_time():
 	return time
 
 func load_settings():
-	pass
+	if not FileAccess.file_exists(settings_path):
+		return 0.0
+	
+	var save_settings = FileAccess.open(settings_path, FileAccess.READ)
+	var settings: bool = bool(save_settings.get_8())
+	save_settings.close()
+	print(settings)
+	return settings
 
 func delete_time_save():
 	if not FileAccess.file_exists(time_save_path):
 		return
 	DirAccess.remove_absolute(time_save_path)
+	
