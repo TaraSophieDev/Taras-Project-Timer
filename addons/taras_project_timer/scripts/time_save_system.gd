@@ -23,7 +23,6 @@ func load_time():
 	var save_time = FileAccess.open(time_save_path, FileAccess.READ)
 	var time: float = save_time.get_float()
 	save_time.close()
-	print(time)
 	return time
 
 func load_settings():
@@ -33,7 +32,6 @@ func load_settings():
 	var save_settings = FileAccess.open(settings_path, FileAccess.READ)
 	var settings: bool = bool(save_settings.get_8())
 	save_settings.close()
-	print(settings)
 	return settings
 
 func delete_time_save():
