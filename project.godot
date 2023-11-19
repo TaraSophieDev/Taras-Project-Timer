@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Project-Timer"
+run/main_scene="res://addons/taras_project_timer/scenes/project_timer.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/taras_project_timer/plugin.cfg")

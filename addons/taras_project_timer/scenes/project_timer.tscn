@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctr1e17honjwp"]
+
+[ext_resource type="Script" path="res://addons/taras_project_timer/scenes/project_timer.gd" id="1_akbt7"]
+
+[node name="Project Timer" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 400)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_akbt7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="StopButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Stop"
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="ResetButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reset Time"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
