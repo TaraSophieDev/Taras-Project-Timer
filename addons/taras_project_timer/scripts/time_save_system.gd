@@ -25,5 +25,5 @@ func load_time():
 func load_settings():
 	pass
 
-func reset_time():
+func delete_time_save():
 	pass

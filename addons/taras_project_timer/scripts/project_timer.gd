@@ -43,3 +43,4 @@ func _on_stop_button_pressed():
 
 func _on_reset_button_pressed():
 	reset_time()
+	_save_manager.delete_time_save()
