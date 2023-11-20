@@ -4,8 +4,8 @@ This Plugin tracks your project time on a project basis, like steam time trackin
 
 This project was made for Godot 4.2
 
-# Disclaimer
-### This plugin currently saves it's project time in the ```user://``` directory, see [File Paths in Godot](https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html#accessing-persistent-user-data-user). If you work on a project on multiple devices, the timer won't transfer the time save. I'll work on a solution soon.
+## Disclaimer
+This plugin currently saves it's project time in the ```user://``` directory, see [File Paths in Godot](https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html#accessing-persistent-user-data-user). If you work on a project on multiple devices, the timer won't transfer the time save. I'll work on a solution soon.
 
 
 
