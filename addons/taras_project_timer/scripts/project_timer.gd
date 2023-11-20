@@ -3,6 +3,14 @@ extends PanelContainer
 
 var _save_manager = SaveManager.new()
 
+var local_save_path: String = "res://addons/taras_project_timer/project-time.save"
+var external_save_path: String = "user://project-time.save"
+var local_settings_path: String = "res://addons/taras_project_timer/settings.save"
+var external_settings_path: String = "user://settings.save"
+
+var current_save_path: String
+var current_settings_path: String
+
 var time_started: bool = false
 var pause_on_unfocus: bool = false
 var is_focused: bool = false
@@ -23,11 +31,14 @@ func reset_time():
 	time = 0.0
 
 func _ready():
+	#current_save_path = external_save_path
+	#current_settings_path = external_settings_path
+	
 	time_started = true
 	is_focused = true
-	time = _save_manager.load_time()
-	pause_on_unfocus = _save_manager.load_settings()
-	$VBoxContainer/HBoxContainer/FocusCheckBox.button_pressed = pause_on_unfocus
+	time = _save_manager.load_time(current_save_path)
+	pause_on_unfocus = _save_manager.load_settings(current_settings_path)
+	#$VBoxContainer/HBoxContainer/FocusCheckBox.button_pressed = pause_on_unfocus
 
 
 func _process(delta):
@@ -46,13 +57,13 @@ func _on_start_button_pressed():
 
 func _on_stop_button_pressed():
 	time_started = false
-	_save_manager.save_time(time)
-	_save_manager.save_settings(pause_on_unfocus)
+	_save_manager.save_time(time, current_save_path)
+	_save_manager.save_settings(pause_on_unfocus, current_settings_path)
 
 
 func _on_reset_button_pressed():
 	reset_time()
-	_save_manager.delete_time_save()
+	_save_manager.delete_time_save(current_save_path)
 
 
 func _notification(what):
@@ -61,9 +72,19 @@ func _notification(what):
 	elif what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
 		is_focused = false
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
-		_save_manager.save_time(time)
-		_save_manager.save_settings(pause_on_unfocus)
+		_save_manager.save_time(time, current_save_path)
+		_save_manager.save_settings(pause_on_unfocus, current_settings_path)
 
 
 func _on_focus_check_box_toggled(toggled_on):
 	pause_on_unfocus = toggled_on
+
+
+func _on_save_locally_check_box_toggled(toggled_on):
+	# TODO: I have no clue what's going on tbh. Why it does the opposite
+	if toggled_on:
+		current_save_path = local_save_path
+		current_settings_path = local_settings_path
+	else:
+		current_save_path = external_save_path
+		current_settings_path = external_settings_path

@@ -35,7 +35,7 @@ text = "Reset"
 [node name="TimeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
-text = "00:00:00:00"
+text = "00:00:18:36"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -43,7 +43,7 @@ layout_mode = 2
 
 [node name="FocusCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-button_pressed = true
+tooltip_text = "Toggle the checkbox on, if you want to save your time save file in the the user:// directory instead of the addons folder."
 
 [node name="FocusLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -52,7 +52,22 @@ theme_override_font_sizes/font_size = 20
 text = "Pause without focus"
 horizontal_alignment = 1
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveLocallyCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Toggle the checkbox on, if you want to save your time save file in the addons folder instead of user://."
+
+[node name="SaveLocallyLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Save locally"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="VBoxContainer/ActionsContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ActionsContainer/StopButton" to="." method="_on_stop_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ActionsContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/FocusCheckBox" to="." method="_on_focus_check_box_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/SaveLocallyCheckBox" to="." method="_on_save_locally_check_box_toggled"]
