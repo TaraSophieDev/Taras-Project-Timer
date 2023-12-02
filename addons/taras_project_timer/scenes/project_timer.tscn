@@ -35,7 +35,7 @@ text = "Reset"
 [node name="TimeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
-text = "00:00:18:36"
+text = "00:00:39:47"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -43,7 +43,7 @@ layout_mode = 2
 
 [node name="FocusCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Toggle the checkbox on, if you want to save your time save file in the the user:// directory instead of the addons folder."
+tooltip_text = "Toggle this checkbox, if you want to pause the time, while the editor is out of focus."
 
 [node name="FocusLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
