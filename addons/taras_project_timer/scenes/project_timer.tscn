@@ -43,7 +43,7 @@ layout_mode = 2
 
 [node name="FocusCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-button_pressed = true
+tooltip_text = "Toggle this checkbox, if you want to pause the time, while the editor is out of focus."
 
 [node name="FocusLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
