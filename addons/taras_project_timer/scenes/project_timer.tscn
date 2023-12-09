@@ -35,7 +35,7 @@ text = "Reset"
 [node name="TimeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
-text = "00:01:17:37"
+text = "00:00:00:00"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
