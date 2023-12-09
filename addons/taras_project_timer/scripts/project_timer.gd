@@ -3,8 +3,8 @@ extends PanelContainer
 
 var _save_manager = SaveManager.new()
 
-var local_save_path: String = "res://addons/saves/taras_project_timer/project-time.save"
-var local_settings_path: String = "res://addons/saves/taras_project_timer/settings.save"
+var local_save_path: String = "res://addons/taras_project_timer/saves/project-time.save"
+var local_settings_path: String = "res://addons/taras_project_timer/saves/settings.save"
 
 var current_save_path: String
 var current_settings_path: String
