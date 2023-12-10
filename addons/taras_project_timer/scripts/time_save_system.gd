@@ -18,8 +18,8 @@ func tracker_dictionary(time: float, pause_on_unfocus: bool):
 	return tracker_dict
 	
 var default_tracker_dict: Dictionary = {
-	"time": {
-		"time": 0.0
+	"times": {
+		"general": 0.0
 	},
 	"settings": {
 		"pause_on_unfocus": false
