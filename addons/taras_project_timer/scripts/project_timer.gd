@@ -3,9 +3,6 @@ extends PanelContainer
 
 var _save_manager = SaveManager.new()
 
-var local_save_path: String = "res://addons/taras_project_timer/saves/project-time.save"
-var local_settings_path: String = "res://addons/taras_project_timer/saves/settings.save"
-
 var current_save_path: String
 var current_settings_path: String
 
@@ -29,16 +26,8 @@ func reset_time():
 	time = 0.0
 
 func _ready():
-	#await get_tree().create_timer(1.0).timeout
-#	print(_save_manager.load_settings()["pause_without_focus"])
-#	print(_save_manager.load_time()["time"])
-	#current_save_path = external_save_path
-	#current_settings_path = external_settings_path
-	
 	time_started = true
 	is_focused = true
-	#time = _save_manager.load_time()
-	#pause_on_unfocus = _save_manager.load_settings()["pause_without_focus"]
 	$VBoxContainer/HBoxContainer/FocusCheckBox.button_pressed = pause_on_unfocus
 
 
@@ -58,12 +47,12 @@ func _on_start_button_pressed():
 
 func _on_stop_button_pressed():
 	time_started = false
-	_save_manager.save_time(time)
+	_save_manager.save_tracker(time, pause_on_unfocus)
 
 
 func _on_reset_button_pressed():
 	reset_time()
-	_save_manager.delete_time_save(local_save_path)
+	_save_manager.delet_tracker_save()
 
 
 func _notification(what):
@@ -72,13 +61,13 @@ func _notification(what):
 	elif what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
 		is_focused = false
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
-		_save_manager.save_time(time)
-		_save_manager.save_settings(pause_on_unfocus)
+		_save_manager.save_tracker(time, pause_on_unfocus)
 	elif what == NOTIFICATION_ENTER_TREE:
-		time = _save_manager.load_time()["time"]
-		pause_on_unfocus = _save_manager.load_settings()["pause_on_unfocus"]
+		time = _save_manager.load_tracker()["times"]["general"]
+		pause_on_unfocus = _save_manager.load_tracker()["settings"]["pause_on_unfocus"]
+		
 
 
 func _on_focus_check_box_toggled(toggled_on):
 	pause_on_unfocus = toggled_on
-	_save_manager.save_settings(pause_on_unfocus)
+	_save_manager.save_tracker(time, pause_on_unfocus)
