@@ -21,9 +21,11 @@ func convert_time_to_readable():
 	
 	$VBoxContainer/TimeLabel.text = "" + str(translated_time)
 	
+
 func reset_time():
 	time_started = false
 	time = 0.0
+
 
 func _ready():
 	time_started = true
@@ -66,7 +68,6 @@ func _notification(what):
 		time = _save_manager.load_tracker()["times"]["general"]
 		pause_on_unfocus = _save_manager.load_tracker()["settings"]["pause_on_unfocus"]
 		
-
 
 func _on_focus_check_box_toggled(toggled_on):
 	pause_on_unfocus = toggled_on
