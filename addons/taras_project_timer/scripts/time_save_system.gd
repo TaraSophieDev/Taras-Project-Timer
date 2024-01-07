@@ -17,6 +17,7 @@ func tracker_dictionary(time: float, pause_on_unfocus: bool):
 	}
 	return tracker_dict
 	
+	
 var default_tracker_dict: Dictionary = {
 	"times": {
 		"general": 0.0
@@ -33,24 +34,29 @@ func settings_dict(pause_on_unfocus: bool):
 	}
 	return settings_dict
 	
+
 func save_dict(time: float):
 	var save_dict: Dictionary = {
 		"time": time
 	}
 	return save_dict
 
+
 var default_settings_dict: Dictionary = {
 		"pause_on_unfocus": false
 	}
 	
+
 var default_save_dict: Dictionary = {
 		"time": 0.0,
 	}
+
 
 func save_tracker(time: float, pause_on_unfocus: bool):
 	var tracker_file = FileAccess.open(user_save_path, FileAccess.WRITE)
 	var json_string = JSON.stringify(tracker_dictionary(time, pause_on_unfocus))
 	tracker_file.store_line(json_string)
+
 
 func load_tracker():
 	var json = JSON.new()
@@ -67,8 +73,8 @@ func load_tracker():
 	var data: Dictionary = json.get_data()
 	return data
 
+
 func delet_tracker_save():
 	if not FileAccess.file_exists(user_save_path):
 		return
 	DirAccess.remove_absolute(user_save_path)
-
