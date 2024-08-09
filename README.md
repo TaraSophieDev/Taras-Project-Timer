@@ -16,7 +16,7 @@ This plugin currently saves it's project time in the ```user://``` directory, se
 
 ## Donations
 
-If you'd like to donate to me, you can do this by going to my [Ko-fi](https://ko-fi.com/terradev64) or buy/pay what you want my games on [Itch.io](https://terradev64.itch.io/)
+If you'd like to donate to me, you can do this by going to my [Ko-fi](https://ko-fi.com/tarasophiedev) or buy/pay what you want my games on [Itch.io](https://tarasophiedev.itch.io/)
 
 ## License
 
